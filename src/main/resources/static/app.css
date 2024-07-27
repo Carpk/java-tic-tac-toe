@@ -1,0 +1,41 @@
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  width: 375px;
+  min-height: 350px;
+}
+
+.letter {
+  font-size: 3.5em;
+  left: 14px;
+  position:relative;
+  top: 12px;
+}
+
+.box {
+  border-left: solid;
+  border-top: solid;
+  float:left;
+  height: 114px;
+  width: 114px;
+}
+
+.boxcorner {
+  border-left: none;
+  border-top: none;
+}
+
+.boxtop {
+  border-top: none;
+}
+
+.boxside {
+  border-left: none;
+}
+
+.hidden {
+  display: none;
+}
+
