@@ -10,4 +10,11 @@ class TicTacToeApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void colMatching() {
+
+		// Board b = new Board();
+
+		
+	}
 }
