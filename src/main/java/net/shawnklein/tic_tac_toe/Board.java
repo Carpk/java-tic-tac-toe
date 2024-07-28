@@ -50,4 +50,10 @@ public class Board {
 
     return a || b;
   }
+
+
+
+  public boolean isBlank(int i) {
+    return board[i].equals(" ");
+  }
 }

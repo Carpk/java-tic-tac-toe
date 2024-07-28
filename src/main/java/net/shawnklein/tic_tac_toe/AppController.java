@@ -25,9 +25,9 @@ public class AppController {
     Game gameState = new Game(board);
     
     // did player win?
-    boolean pcTurn = gameState.isActive();
+    boolean playTurn = gameState.isActive();
 
-    if (pcTurn) {
+    if (playTurn) {
       int position = gameState.playTurn();
     } else {
       String winner = "X"; 

@@ -1,7 +1,6 @@
 package net.shawnklein.tic_tac_toe;
 
 
-
 public class Game {
   Board board;
 
@@ -19,6 +18,25 @@ public class Game {
   public int playTurn() {
     board.isColMatch();
     
+    Opponent pc = new Opponent();
+
+
+
+
     return 3;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
