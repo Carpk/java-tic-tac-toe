@@ -20,8 +20,24 @@ public class AppController {
 
   @PostMapping("/")
   @ResponseBody
-  public ResponseEntity<String> playerTurn(@RequestParam int id) {
-    // turn: {"positio": 3}
+  public ResponseEntity<String> playerTurn(@RequestParam String[] board) {
+
+    Game gameState = new Game(board);
+    
+    // did player win?
+    boolean pcTurn = gameState.isActive();
+
+    if (pcTurn) {
+      int position = gameState.playTurn();
+    } else {
+      String winner = "X"; 
+    }
+     
+    
+
+
+    // did pc win?
+
     return ResponseEntity.ok("3");
   }
 

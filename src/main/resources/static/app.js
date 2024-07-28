@@ -12,16 +12,17 @@ $(function() {
       boardArray[this.id] = "X";
       $("#"+this.id ).text( "X");
 
+      $.post( "/", { 'board[]': boardArray })
+        .done(function( data ) {
+          console.log( data );
+          $("#"+data ).text( "O");
+          boardArray[data] = "O";
+        });
 
-      $.post( "/", { 'board[]': boardArray, 'id': 3 });
 
 
 
 
-      // $.post( "ajax/turn", function( data ) {
-      //   // $( ".result" ).html( data );
-      //   console.log(data);
-      // });
     }
 
 
