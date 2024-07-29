@@ -10,7 +10,8 @@ public class Opponent {
 
 
 
-  // manages the 
+  // manages the ai algorithm
+  // returns suggsted position
   public int play(Board board) {
     int pos = 0;
     int max = -9;
@@ -24,7 +25,7 @@ public class Opponent {
         }
     }
 
-    return max;
+    return pos;
   }
 
   public void takeTurn() {

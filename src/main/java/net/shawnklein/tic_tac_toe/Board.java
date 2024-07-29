@@ -13,8 +13,14 @@ public class Board {
     return !isColMatch() && !isRowMatch();
   }
 
+  // method to return boolean 
+  // set instance var if winner available
+  public String winner() {
+    return " ";
+  }
 
 
+  // returns boolean based on playable positions in board
   public boolean isFullBoard() {
     for (String s : board) {
       if (" ".equals(s)) { return false; }
@@ -23,7 +29,7 @@ public class Board {
     return true;
   }
 
-
+  // possibly change these to return common character
   public boolean isColMatch() {
     boolean a = !board[0].equals(" ") && board[0].equals(board[3]) && board[0].equals(board[6]);
     boolean b = !board[1].equals(" ") && board[1].equals(board[4]) && board[1].equals(board[7]);

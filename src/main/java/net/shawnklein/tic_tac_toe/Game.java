@@ -9,17 +9,24 @@ public class Game {
   }
 
 
-
+  // returns boolen if game is in playable state
   public boolean isActive() {
     // need to check for winning positions
     return board.isActive();
   }
 
+  // return winner of game
+  public char winner() {
+
+    return 'n';
+  }
+
+
+  // returns computer choosen position
   public int playTurn() {
     board.isColMatch();
     
     Opponent pc = new Opponent();
-
 
 
 
