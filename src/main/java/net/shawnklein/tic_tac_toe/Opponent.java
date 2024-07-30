@@ -40,12 +40,15 @@ public class Opponent {
   }
   
   public Integer minimax(Board board, int depth, Boolean maximizingPlayer) {
-    if (depth == 0) 
+    
+    if (depth == 0) {
       if (board.pcWins()) {
         return 128;
       } else {
         return -128;
       }
+    }
+
     if (maximizingPlayer) {
       int value = -128;
 

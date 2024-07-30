@@ -1,20 +1,16 @@
 package net.shawnklein.tic_tac_toe;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TicTacToeApplicationTests {
+public class GameTests {
 
-	// @Test
-	// void contextLoads() {
-	// }
 
-	// @Test
-	// void colMatching() {
 
-	// 	// Board b = new Board();
 
-		
-	// }
+  
 }
