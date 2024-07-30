@@ -8,6 +8,17 @@ public class Board {
 
   }
 
+  public int availableSpaces() {
+    int res = 0;
+
+    for (int i=0; i<9; i++) {
+        if (" " == board[i]) {
+          res++;
+        }
+    }
+    return res;
+  }
+
   // need to check for winning positions or full board
   public boolean isActive() {
     return !isColMatch() && !isRowMatch();
@@ -61,5 +72,15 @@ public class Board {
 
   public boolean isBlank(int i) {
     return board[i].equals(" ");
+  }
+
+  public boolean pcWins() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'pcWins'");
+  }
+
+  public void assign(int i, String string) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'assign'");
   }
 }
