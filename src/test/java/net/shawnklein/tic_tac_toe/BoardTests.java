@@ -74,6 +74,77 @@ public class BoardTests {
 		assertFalse(b.isActive());
 	}
 
+  @Test 
+	void getWinnerNone() {
+    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
+		Board b = new Board(a);
+
+		assertEquals("n", b.getWinner());
+	}
+
+  @Test
+	void getWinnerTop() {
+    String[] a = {"X", "X", "X", " ", " ", " ", " ", " ", " "};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+
+  @Test
+	void getWinnerMid() {
+    String[] a = {" ", " ", " ", "X", "X", "X", " ", " ", " "};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+
+  @Test
+	void getWinnerBot() {
+    String[] a = {" ", " ", " ", " ", " ", " ", "X", "X", "X"};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+
+  @Test
+	void getWinnerLeft() {
+    String[] a = {"X", " ", " ", "X", " ", " ", "X", " ", " "};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+  
+  @Test
+	void getWinnerCentr() {
+    String[] a = {" ", "X", " ", " ", "X", " ", " ", "X", " "};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+  
+  @Test
+	void getWinnerRight() {
+    String[] a = {" ", " ", "X", " ", " ", "X", " ", " ", "X"};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+
+  @Test
+	void getWinnerRCross() {
+    String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", "X"};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
+
+  @Test
+	void getWinnerLCross() {
+    String[] a = {" ", " ", "X", " ", "X", " ", "X", " ", " "};
+		Board b = new Board(a);
+
+		assertEquals("X", b.getWinner());
+	}
 }
 
 
@@ -82,11 +153,7 @@ public class BoardTests {
 
 
 
-// // method to return boolean 
-// // set instance var if winner available
-// public String winner() {
-//   return " ";
-// }
+
 
 
 // // returns boolean based on playable positions in board

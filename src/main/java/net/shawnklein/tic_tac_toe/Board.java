@@ -24,11 +24,6 @@ public class Board {
     return !isColMatch() && !isRowMatch();
   }
 
-  // method to return boolean 
-  // set instance var if winner available
-  public String winner() {
-    return " ";
-  }
 
 
   // returns boolean based on playable positions in board
@@ -36,19 +31,31 @@ public class Board {
     for (String s : board) {
       if (" ".equals(s)) { return false; }
     }
+    // Arrays.asList(board).contains(" ");
 
     return true;
   }
 
-  public String getWinner() {
-    int indices[][] = {{0,1,2},{3,4,5},{6,7,8},
-                       {0,3,6},{1,4,7},{2,5,8},
-                       {0,4,8},{2,4,6}};
 
-    for (int[] i : indices) {
+
+
+  public String getWinner() {
+    int winningIndices[][] = {{0,1,2},{3,4,5},{6,7,8},
+                              {0,3,6},{1,4,7},{2,5,8},
+                              {0,4,8},{2,4,6}};
+
+    for (int[] i : winningIndices) {
+      Boolean playerMatch = 
+        !board[i[0]].equals(" ") && 
+        board[i[0]].equals(board[i[1]]) && 
+        board[i[0]].equals(board[i[2]]);
       
+        if (playerMatch) {
+          return board[i[0]];
+      }
     }
-    return " ";
+
+    return "n";
   }
 
   // possibly change these to return common character
