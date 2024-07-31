@@ -16,15 +16,14 @@ public class Game {
   }
 
   // return winner of game
-  public char winner() {
-
-    return 'n';
+  public String winner() {
+    return board.getWinner();
   }
 
 
   // returns computer choosen position
   public int playTurn() {
-    board.isColMatch();
+    board.isAnyMatch();
     
     Opponent pc = new Opponent();
 
