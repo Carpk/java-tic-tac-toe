@@ -1,5 +1,7 @@
 package net.shawnklein.tic_tac_toe;
 
+import java.util.Arrays;
+
 public class Board {
   String[] board;
   // int WINNINGINDICES[][] = {{0,1,2},{3,4,5},{6,7,8},
@@ -11,15 +13,19 @@ public class Board {
 
   }
 
+  public Board clone() {
+    return new Board(board.clone());
+  }
+
   public int availableSpaces() {
-    int res = 0;
+    int count = 0;
 
     for (int i=0; i<9; i++) {
         if (" " == board[i]) {
-          res++;
+          count++;
         }
     }
-    return res;
+    return count;
   }
 
   // need to check for winning positions or full board
@@ -102,11 +108,14 @@ public class Board {
   }
 
   public boolean pcWins() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'pcWins'");
+    return getWinner() == "X";
   }
 
   public void assign(int i, String string) {
     board[i] = string;
+  }
+
+  public void printSelf() {
+    System.out.println(Arrays.toString(board));
   }
 }
