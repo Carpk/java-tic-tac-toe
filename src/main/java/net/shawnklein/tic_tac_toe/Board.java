@@ -108,7 +108,7 @@ public class Board {
   }
 
   public boolean pcWins() {
-    return getWinner() == "X";
+    return getWinner() == "O";
   }
 
   public void assign(int i, String string) {
@@ -120,6 +120,6 @@ public class Board {
   }
 
   public boolean huWins() {
-    return getWinner() == "O";
+    return getWinner() == "X";
   }
 }

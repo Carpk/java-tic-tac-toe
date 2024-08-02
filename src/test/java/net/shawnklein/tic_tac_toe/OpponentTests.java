@@ -45,16 +45,33 @@ public class OpponentTests {
 		assertEquals(4, opp.play(b));
 	}
 
+
 	@Test
-	void minmaxTwoOpenEasyFourSpotDef() {
+	void minmaxTopDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", "O", " ", " ", "X", "X", " ", "O"};
+    String[] a = {"O", " ", " ", "X", " ", "X", "X", "O", " "};
     Board b = new Board(a);
 
 		assertEquals(4, opp.play(b));
 	}
 
+	@Test
+	void minmaxMidDefAssignment() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", " ", " ", " ", " ", "X", "X", " ", "O"};
+    Board b = new Board(a);
 
+		assertEquals(4, opp.play(b));
+	}
+
+	@Test
+	void minmaxBotDefAssignment() {
+		Opponent opp = new Opponent();
+    String[] a = {"X", " ", " ", " ", " ", "X", "O", " ", "O"};
+    Board b = new Board(a);
+
+		assertEquals(7, opp.play(b));
+	}
 
 
 
