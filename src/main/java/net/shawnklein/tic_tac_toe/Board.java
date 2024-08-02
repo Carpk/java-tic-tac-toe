@@ -118,4 +118,8 @@ public class Board {
   public void printSelf() {
     System.out.println(Arrays.toString(board));
   }
+
+  public boolean huWins() {
+    return getWinner() == "O";
+  }
 }

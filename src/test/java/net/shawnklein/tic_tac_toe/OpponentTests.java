@@ -28,11 +28,37 @@ public class OpponentTests {
 
 
 	@Test
-	void minmaxTwoOpenEasyWin() {
+	void minmaxTwoOpenEasyTwoSpotWin() {
 		Opponent opp = new Opponent();
     String[] a = {"X", "O", " ", "X", "X", "O", " ", "X", "O"};
     Board b = new Board(a);
 
 		assertEquals(6, opp.play(b));
 	}
+
+	@Test
+	void minmaxTwoOpenEasyFourSpotWin() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", " ", " ", "X", " ", "X", " ", "O", "O"};
+    Board b = new Board(a);
+
+		assertEquals(4, opp.play(b));
+	}
+
+	@Test
+	void minmaxTwoOpenEasyFourSpotDef() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", " ", "O", " ", " ", "X", "X", " ", "O"};
+    Board b = new Board(a);
+
+		assertEquals(4, opp.play(b));
+	}
+
+
+
+
+
+
+
+
 }

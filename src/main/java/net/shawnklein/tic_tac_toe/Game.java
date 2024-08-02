@@ -22,14 +22,9 @@ public class Game {
 
 
   // returns computer choosen position
-  public int playTurn() {
-    board.isAnyMatch();
-    
+  public int playTurn() {    
     Opponent pc = new Opponent();
-
-
-
-    return 3;
+    return pc.play(board);
   }
 
 

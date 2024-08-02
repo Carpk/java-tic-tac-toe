@@ -21,14 +21,12 @@ public class Opponent {
     int depth = board.availableSpaces(); // - 1;
 
     for (int i = 0; i < 9; i++) {
-      board.printSelf();
       if (board.isBlank(i)) {
-        System.out.println("Open position at: " + i);
         Board tempBoard = board.clone();
         tempBoard.assign(i, "X");
 
         int posValue = minimax(tempBoard, depth, false);
-        System.out.println("RETURNING VAL: " + posValue);
+        System.out.println("RETURNING VAL: " + posValue);         // PRINT FOR DEBUG
 
         if (maxVal < posValue) {
           pos = i; 
@@ -42,12 +40,12 @@ public class Opponent {
 
   public Integer minimax(Board board, int depth, Boolean pcTurn) {
     if (depth == 0 || board.isAnyMatch()) {
-      // board.printSelf();                                      // DEBUGGING WITH PRINT
-
-       if (board.pcWins()) {
+      if (board.pcWins()) {
         return 128;               
-      } else {                                                // need check for tie game, else if pWin r 0
+      } else if (board.huWins()) {
         return -128;
+      } else {                                                // need check for tie game, else if pWin r 0
+        return 0;
       }
     }
 
