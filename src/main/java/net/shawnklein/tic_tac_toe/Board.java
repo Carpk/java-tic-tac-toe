@@ -33,13 +33,13 @@ public class Board {
 
   // need to check for winning positions or full board
   public boolean isActive() {
-    return !isAnyMatch() && !isFullBoard();
+    return !isAnyMatch() && !isFull();
   }
 
 
 
   // returns boolean based on playable positions in board
-  public boolean isFullBoard() {
+  public boolean isFull() {
     for (String s : board) {
       if (" ".equals(s)) { return false; }
     }

@@ -30,7 +30,7 @@ public class OpponentTests {
 	@Test
 	void minmaxTwoOpenEasyTwoSpotWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "O", " ", "X", "O", "X", " ", "X", "O"};
+    String[] a = {"X", "O", " ", "X", "O", "X", " ", "X", "O"};  // test isAnyMatch
     Board b = new Board(a);
 
 		assertEquals(6, opp.play(b));
@@ -49,10 +49,10 @@ public class OpponentTests {
 	@Test
 	void minmaxTopDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", " ", "X", "O", " ", "X", " ", "O", " "};
+    String[] a = {"X", "X", " ", "O", " ", "X", " ", "O", " "};
     Board b = new Board(a);
 
-		assertEquals(1, opp.play(b));
+		assertEquals(2, opp.play(b));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class OpponentTests {
 	@Test
 	void minmaxBotDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", " ", " ", " ", " ", "X", "O", " ", "O"};
+    String[] a = {"O", " ", " ", " ", " ", "O", "X", " ", "X"};
     Board b = new Board(a);
 
 		assertEquals(7, opp.play(b));

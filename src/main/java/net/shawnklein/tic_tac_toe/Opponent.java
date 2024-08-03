@@ -25,6 +25,7 @@ public class Opponent {
     for (int i = 0; i < 9; i++) {
       if (board.isBlank(i)) {
         Board tempBoard = board.clone();
+        System.out.println("BLANK AT " + i);
         tempBoard.assign(i, "O");
 
         int posValue = minimax(tempBoard, depth, false);
@@ -40,62 +41,6 @@ public class Opponent {
     return pos;
   }
   
-  public Integer minimax(Board board, int depth, Boolean pcTurn) { 
-    if (depth == 0 || board.isAnyMatch()) {
-      return boardValue(board);
-    }
-
-    List<Integer> indices = board.openIndices();
-    for (int i : indices) {
-      Board tempBoard = board.clone();  
-      tempBoard.assign(i, pcTurn ? "O" : "X");
-      return minimax(tempBoard, depth + 1, !pcTurn) / 2;
-    }
-
-
-    // for (int i = 0; i < 9; i++) {             
-    //   if (board.isBlank(i) ) {        
-    //     Board tempBoard = board.clone();  
-    //     tempBoard.assign(i, pcTurn ? "O" : "X");
-    //     return minimax(tempBoard, depth + 1, !pcTurn) / 2;
-    //   }
-    // }
-
-    return 0;
-  }
-
-
-  public Integer minimax_old(Board board, int depth, Boolean pcTurn) {
-    if (depth == 0 || board.isAnyMatch()) {
-      return boardValue(board);
-    }
-
-    Board tempBoard = board.clone();            // I think this is the problem, assingment persists
-
-    if (pcTurn) {
-      System.out.println("PC TURN");
-      int value = -128;
-      for (int i = 0; i < 9; i++) {                           // could just get list of indices
-        if (tempBoard.isBlank(i) ) {           // block if unable to beat potential value
-          tempBoard.assign(i, "O");
-          value = Math.max(value, minimax(tempBoard, depth - 1, false)) / 2;
-        }
-      }
-      return value;
-    } else {                            //minimizing player
-      System.out.println("HU TURN");
-      int value = 128;
-      for (int i = 0; i < 9; i++) {
-        if (tempBoard.isBlank(i)) {
-          tempBoard.assign(i, "X");
-          value = Math.min(value, minimax(tempBoard, depth - 1, true)) / 2;
-        }
-      }
-      return value;
-    }
-  }
-
-  
   public Integer boardValue(Board board) {
     board.printSelf();
 
@@ -107,6 +52,59 @@ public class Opponent {
       return 0;
     }
   }
+
+  
+  public Integer minimax(Board board, int depth, Boolean pcTurn) { 
+    if (board.isFull() || board.isAnyMatch()) {
+      return boardValue(board);
+    }
+
+    int val = pcTurn ? -128 : 128;
+    List<Integer> indices = board.openIndices();
+    for (int i : indices) {
+      Board tempBoard = board.clone();  
+      tempBoard.assign(i, pcTurn ? "O" : "X");
+      int tempVal = minimax(tempBoard, depth - 1, !pcTurn) / 2;
+      val = pcTurn ? Math.max(val, tempVal) : Math.min(val,tempVal);
+    }
+
+    return val;
+  }
+
+
+  public Integer minimaxT(Board board, int depth, Boolean pcTurn) {
+    if (depth == 0 || board.isAnyMatch()) {
+      return boardValue(board);
+    }
+
+    if (pcTurn) {
+      System.out.println("PC TURN");
+      int value = -128;
+      for (int i = 0; i < 9; i++) {                           // could just get list of indices
+        if (board.isBlank(i) ) {           // block if unable to beat potential value
+          Board tempBoard = board.clone(); 
+          tempBoard.assign(i, "O");
+          value = Math.max(value, minimax(tempBoard, depth - 1, false)) / 2;
+        }
+      }
+      return value;
+    } else {                            //minimizing player
+      System.out.println("HU TURN");
+      int value = 128;
+      for (int i = 0; i < 9; i++) {
+        if (board.isBlank(i)) {
+          Board tempBoard = board.clone();
+          tempBoard.assign(i, "X");
+          value = Math.min(value, minimax(tempBoard, depth - 1, true)) / 2;
+        }
+      }
+      return value;
+    }
+  }
+
+
+  
+
 
 
 
@@ -121,3 +119,11 @@ public class Opponent {
   // }
 
 }
+
+
+
+
+
+
+
+
