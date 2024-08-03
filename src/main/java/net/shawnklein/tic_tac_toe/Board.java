@@ -1,6 +1,9 @@
 package net.shawnklein.tic_tac_toe;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class Board {
   String[] board;
@@ -121,5 +124,18 @@ public class Board {
 
   public boolean huWins() {
     return getWinner() == "X";
+  }
+
+  public List<Integer> openIndices() {
+    LinkedList<Integer> indices = new LinkedList<Integer>();
+    
+    for (int i = 0; i < 8; i++) {
+        if (board[i] == " ") {
+            indices.add(i);  
+        }
+    }
+
+    // int[] arr = indices.stream().mapToInt(i -> i).toArray();
+    return indices;
   }
 }

@@ -1,5 +1,7 @@
 package net.shawnklein.tic_tac_toe;
 
+import java.util.List;
+
 public class Opponent {
 
 
@@ -38,31 +40,37 @@ public class Opponent {
     return pos;
   }
   
-  public Integer minimax2(Board board, int depth, Boolean pcTurn) { 
+  public Integer minimax(Board board, int depth, Boolean pcTurn) { 
     if (depth == 0 || board.isAnyMatch()) {
       return boardValue(board);
     }
 
-    Board tempBoard = board.clone();
-    for (int i = 0; i < 9; i++) {             
-      if (tempBoard.isBlank(i) ) {          
-        tempBoard.assign(i, "O");
-        return minimax(tempBoard, depth + 1, !pcTurn) / 2;
-      }
+    List<Integer> indices = board.openIndices();
+    for (int i : indices) {
+      Board tempBoard = board.clone();  
+      tempBoard.assign(i, pcTurn ? "O" : "X");
+      return minimax(tempBoard, depth + 1, !pcTurn) / 2;
     }
+
+
+    // for (int i = 0; i < 9; i++) {             
+    //   if (board.isBlank(i) ) {        
+    //     Board tempBoard = board.clone();  
+    //     tempBoard.assign(i, pcTurn ? "O" : "X");
+    //     return minimax(tempBoard, depth + 1, !pcTurn) / 2;
+    //   }
+    // }
 
     return 0;
   }
 
 
-  public Integer minimax(Board board, int depth, Boolean pcTurn) {
+  public Integer minimax_old(Board board, int depth, Boolean pcTurn) {
     if (depth == 0 || board.isAnyMatch()) {
       return boardValue(board);
     }
 
-    Board tempBoard = board.clone();
-
-
+    Board tempBoard = board.clone();            // I think this is the problem, assingment persists
 
     if (pcTurn) {
       System.out.println("PC TURN");

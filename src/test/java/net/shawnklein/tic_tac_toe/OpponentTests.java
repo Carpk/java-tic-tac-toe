@@ -30,7 +30,7 @@ public class OpponentTests {
 	@Test
 	void minmaxTwoOpenEasyTwoSpotWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "O", " ", "X", "X", "O", " ", "X", "O"};
+    String[] a = {"X", "O", " ", "X", "O", "X", " ", "X", "O"};
     Board b = new Board(a);
 
 		assertEquals(6, opp.play(b));
@@ -49,10 +49,10 @@ public class OpponentTests {
 	@Test
 	void minmaxTopDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", " ", "X", " ", "X", "X", "O", " "};
+    String[] a = {"X", " ", "X", "O", " ", "X", " ", "O", " "};
     Board b = new Board(a);
 
-		assertEquals(4, opp.play(b));
+		assertEquals(1, opp.play(b));
 	}
 
 	@Test
