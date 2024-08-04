@@ -342,52 +342,58 @@ public class BoardTests {
 		assertTrue( b.huWins() );
 	}
 
-  @Test
-	void openIndicesWithOne() {
-    String[] a = {"X", " ", " ", " ", " ", " ", " ", " ", "X"};
+	@Test
+	void assignFrontToken() {
+    String[] a = {" ", "X", "X", " ", " ", " ", " ", " ", " "};
 		Board b = new Board(a);
-		List<Integer> c = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+
+		assertFalse( b.huWins() );
+		b.assign(0, "X");
+		assertTrue( b.huWins() );
+	}
+
+	@Test
+	void assignEndToken() {
+    String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", " "};
+		Board b = new Board(a);
+
+		assertFalse( b.huWins() );
+		b.assign(8, "X");
+		assertTrue( b.huWins() );
+	}
+
+  @Test
+	void openIndicesAllOpen() {
+    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
+		Board b = new Board(a);
+		List<Integer> c = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
+		List<Integer> d = b.openIndices();
+
+		System.out.println(d);
+
+		assertTrue( c.equals(d) );
+	}
+
+  @Test
+	void openIndicesOneOpen() {
+    String[] a = {"X", "X", "X", " ", "X", "X", "X", "X", "X"};
+		Board b = new Board(a);
+		List<Integer> c = Arrays.asList( 3);
 		List<Integer> d = b.openIndices();
 
 		assertTrue( c.equals(d) );
 	}
 
+	@Test
+	void openIndicesSomeOpen() {
+    String[] a = {"X", " ", "X", " ", "X", " ", "X", "X", " "};
+		Board b = new Board(a);
+		List<Integer> c = Arrays.asList(1, 3, 5, 8);
+		List<Integer> d = b.openIndices();
 
+		assertTrue( c.equals(d) );
+	}
+
+	 
 
 }
-
-
-
-
-
-
-
-
-
-
-// // returns boolean based on playable positions in board
-// public boolean isFullBoard() {
-//   for (String s : board) {
-//     if (" ".equals(s)) { return false; }
-//   }
-
-//   return true;
-// }
-
-
-
-
-
-// public boolean isBlank(int i) {
-//   return board[i].equals(" ");
-// }
-
-// public boolean pcWins() {
-//   // TODO Auto-generated method stub
-//   throw new UnsupportedOperationException("Unimplemented method 'pcWins'");
-// }
-
-// public void assign(int i, String string) {
-//   // TODO Auto-generated method stub
-//   throw new UnsupportedOperationException("Unimplemented method 'assign'");
-// }

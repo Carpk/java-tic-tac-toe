@@ -99,7 +99,7 @@ public class Board {
   public List<Integer> openIndices() {
     LinkedList<Integer> indices = new LinkedList<Integer>();
     
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         if (board[i] == " ") {
             indices.add(i);  
         }

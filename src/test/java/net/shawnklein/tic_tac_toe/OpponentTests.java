@@ -75,7 +75,75 @@ public class OpponentTests {
 
 
 
+	@Test
+	void boardValueTie() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", "O", "X", "X", "X", "O", "O", "O", "X"};
+    Board b = new Board(a);
 
+		assertEquals(0, opp.boardValue(b));
+	}
 
+	@Test
+	void boardValueXWin() {
+		Opponent opp = new Opponent();
+    String[] a = {"X", "O", "X", "X", "X", "O", "O", "O", "X"};
+    Board b = new Board(a);
 
+		assertEquals(-128, opp.boardValue(b));
+	}
+
+	@Test
+	void boardValueOWin() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", "O", "X", "O", "X", "O", "O", "O", "X"};
+    Board b = new Board(a);
+
+		assertEquals(128, opp.boardValue(b));
+	}
+
+	@Test
+	void minimaxBlank() {
+		Opponent opp = new Opponent();
+    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
+    Board b = new Board(a);
+
+		assertEquals(0, opp.minimax(b, 0, true));
+	}
+
+	@Test
+	void minimaxPcWinnerBoard() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", "O", "O", " ", " ", " ", " ", " ", " "};
+    Board b = new Board(a);
+
+		assertEquals(128, opp.minimax(b, 0, true));
+	}
+
+	@Test
+	void minimaxHuWinnerBoard() {
+		Opponent opp = new Opponent();
+    String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", "X"};
+    Board b = new Board(a);
+
+		assertEquals(-128, opp.minimax(b, 0, false));
+	}
+
+	@Test
+	void minimaxOneSpaceWin() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", "O", " ", " ", " ", " ", " ", " ", " "};
+    Board b = new Board(a);
+
+		assertEquals(64, opp.minimax(b, 0, true));
+	}
+
+	// @Test
+	// void minimaxTwoSpaceWin() {
+	// 	Opponent opp = new Opponent();
+  //   String[] a = {"O", " ", " ", " ", " ", "X", " ", "X", " "};
+  //   Board b = new Board(a);
+
+	// 	assertEquals(32, opp.minimax(b, 0, true));
+	// }
 }
