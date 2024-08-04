@@ -13,7 +13,6 @@ public class Board {
 
   public Board(String[] gameBoard) {
     board = gameBoard;
-
   }
 
   public Board clone() {
@@ -65,47 +64,18 @@ public class Board {
   }
 
   public Boolean isAnyMatch() {
-    int winningIndices[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
+    // int winningIndices[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
 
-    for (int[] i : winningIndices) {
-      if (!board[i[0]].equals(" ") && board[i[0]].equals(board[i[1]]) && board[i[0]].equals(board[i[2]])) {
-        return true;
-      }
-    }
+    // for (int[] i : winningIndices) {
+    //   if (!board[i[0]].equals(" ") && board[i[0]].equals(board[i[1]]) && board[i[0]].equals(board[i[2]])) {
+    //     return true;
+    //   }
+    // }
 
-    return false;
+    return getWinner() != "n";
   }
 
-  // // possibly change these to return common character
-  // public boolean isColMatch() {
-  //   boolean a = !board[0].equals(" ") && board[0].equals(board[3]) && board[0].equals(board[6]);
-  //   boolean b = !board[1].equals(" ") && board[1].equals(board[4]) && board[1].equals(board[7]);
-  //   boolean c = !board[2].equals(" ") && board[2].equals(board[5]) && board[2].equals(board[8]);
-
-  //   return a || b || c;
-  // }
-
-  // public boolean isRowMatch() {
-  //   String top = board[0];
-  //   String mid = board[3];
-  //   String bot = board[6];
-
-  //   boolean a = !top.equals(" ") && top.equals(board[1]) && top.equals(board[2]);
-  //   boolean b = !mid.equals(" ") && mid.equals(board[4]) && mid.equals(board[5]);
-  //   boolean c = !bot.equals(" ") && bot.equals(board[7]) && bot.equals(board[8]);
-
-  //   return a || b || c;
-  // }
-
-  // public boolean isDiagMatch() {
-  //   boolean a = !board[0].equals(" ") && board[0].equals(board[4]) && board[0].equals(board[8]);
-  //   boolean b = !board[2].equals(" ") && board[2].equals(board[4]) && board[2].equals(board[6]);
-
-  //   return a || b;
-  // }
-
-
-
+  // Takes in index and returns boolean based on if it's available
   public boolean isBlank(int i) {
     return board[i].equals(" ");
   }
@@ -114,16 +84,16 @@ public class Board {
     return getWinner() == "O";
   }
 
+  public boolean huWins() {
+    return getWinner() == "X";
+  }
+
   public void assign(int i, String string) {
     board[i] = string;
   }
 
   public void printSelf() {
     System.out.println(Arrays.toString(board));
-  }
-
-  public boolean huWins() {
-    return getWinner() == "X";
   }
 
   public List<Integer> openIndices() {
