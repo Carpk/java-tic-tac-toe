@@ -1,5 +1,14 @@
 
-.container {
+@font-face {
+  font-family: grobold;
+  src: url(GROBOLD.ttf);
+}
+
+body {
+  font-family: grobold;
+}
+
+.center-grid {
   margin-left: auto;
   margin-right: auto;
   margin-top: 150px;
