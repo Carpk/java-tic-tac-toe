@@ -21,7 +21,7 @@ $(function() {
 
           } else if (data.isActive == 't') {
             $("#"+data.position ).text( "O").css("color", "red");          
-            boardArray[data.position] = "O";
+            boardArray[data.position] = "O"; 
           }
 
 

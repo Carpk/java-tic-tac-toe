@@ -23,12 +23,12 @@ public class AppController {
 
   @PostMapping("/")
   @ResponseBody
-  public Map<String, Character> playerTurn(@RequestParam String[] board) {
-    Map<String, Character> map = new HashMap<>();
+  public Map<String, String> playerTurn(@RequestParam String[] board) {
+    Board gameBoard = new Board(board);
+    Opponent pc = new Opponent();
+    Game game = new Game(gameBoard, pc);
+    Map<String, String> map = new HashMap<>();
 
-    System.out.println(board);
-
-    Game game = new Game(board);
     int position = game.playTurn();
 
     // did player win?
@@ -42,16 +42,13 @@ public class AppController {
     // }
      
 
-    // did pc win?
 
-    // front end needs pc position, know if game is over, and who is winner
-    char b = (char)(position + '0');
-    map.put("position", b);
-    map.put("winner", 'n');
-    map.put("isActive", 't');
+
+    map.put("position", String.valueOf(position));
+    map.put("winner", game.winner());
+    map.put("isActive", game.isActive());
+
     return map; 
-
-    // return ResponseEntity.ok("3");
   }
 
 }

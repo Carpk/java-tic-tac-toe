@@ -12,7 +12,9 @@ public class GameTests {
   @Test
 	void classInstantiates() {
     String[] a = {" ", "X", "X", "X", "X", "X", "X", "X", "X"};
-		Game g = new Game(a);
+		Board board = new Board(a);
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
 
 		assertEquals(net.shawnklein.tic_tac_toe.Game.class, g.getClass());
 	}

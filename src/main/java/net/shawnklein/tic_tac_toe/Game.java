@@ -3,16 +3,22 @@ package net.shawnklein.tic_tac_toe;
 
 public class Game {
   Board board;
+  Opponent pc;
 
-  public Game(String[] gameboard) {
-    board = new Board(gameboard);
+  public Game(Board gameboard, Opponent opp) {
+    board = gameboard;
+    pc = opp;
   }
 
 
   // returns boolen if game is in playable state
-  public boolean isActive() {
+  public String isActive() {
     // need to check for winning positions
-    return board.isActive();
+    if (board.isActive()) {
+      return "t";
+    }
+
+    return "f";
   }
 
   // return winner of game
@@ -23,7 +29,6 @@ public class Game {
 
   // returns computer choosen position
   public int playTurn() {    
-    Opponent pc = new Opponent();
     return pc.play(board);
   }
 
