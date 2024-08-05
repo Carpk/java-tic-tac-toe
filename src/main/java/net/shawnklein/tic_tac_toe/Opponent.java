@@ -15,19 +15,20 @@ public class Opponent {
     for (int i = 0; i < 9; i++) {
       if (board.isBlank(i)) {
         Board tempBoard = board.clone();
-        System.out.println("BLANK AT " + i);
+        // System.out.println("BLANK AT " + i);
         tempBoard.assign(i, "O");
 
         int posValue = minimax(tempBoard, depth, false);
-        System.out.println("RETURNING VAL: " + posValue + " for pos: " + i);         // PRINT FOR DEBUG
+        // System.out.println("RETURNING VAL: " + posValue + " for pos: " + i);         // PRINT FOR DEBUG
 
         if (posValue > maxVal) {
+          System.out.println("ASSINGING " + i + " for value: " + posValue);
           maxVal = posValue;
           pos = i; 
         }
       }
     }
-
+    // System.out.println("PLAY RETURNING: " + pos);
     return pos;
   }
   
@@ -36,7 +37,7 @@ public class Opponent {
       return 128;               
     } else if (board.huWins()) {
       return -128;
-    } else {                                                // need check for tie game, else if pWin r 0
+    } else {      
       return 0;
     }
   }
@@ -61,6 +62,11 @@ public class Opponent {
 
     return val;
   }
+
+}
+
+
+
 
 
   // public Integer minimaxT(Board board, int depth, Boolean pcTurn) {
@@ -92,16 +98,5 @@ public class Opponent {
   //     return value;
   //   }
   // }
-
-
-
-
-}
-
-
-
-
-
-
 
 

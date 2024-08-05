@@ -9,20 +9,24 @@ $(function() {
 
 
     if (playerTurn & boardArray[this.id] == " "){
+      playerTurn = false;
       boardArray[this.id] = "X";
       $("#"+this.id ).text( "X").css("color", "blue");
 
       $.post( "/", { 'board[]': boardArray })
         .done(function( data ) {
           console.log( data );
-          $("#"+data ).text( "O").css("color", "red");          
-          boardArray[data] = "O";
+
+          if (data.winner == 'O') {
+
+          } else if (data.isActive == 't') {
+            $("#"+data.position ).text( "O").css("color", "red");          
+            boardArray[data.position] = "O";
+          }
+
+
         });
-
-
-
-
-
+        playerTurn = true;
     }
 
 
