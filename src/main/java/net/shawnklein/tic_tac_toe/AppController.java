@@ -24,30 +24,23 @@ public class AppController {
   @PostMapping("/")
   @ResponseBody
   public Map<String, String> playerTurn(@RequestParam String[] board) {
+    Map<String, String> map = new HashMap<>();
+    
     Board gameBoard = new Board(board);
     Opponent pc = new Opponent();
     Game game = new Game(gameBoard, pc);
-    Map<String, String> map = new HashMap<>();
+    
 
-    int position = game.playTurn();
+    if (game.isActive() == "t") {
+      int position = game.playTurn();
+      map.put("position", String.valueOf(position));
+    }
+    
 
-    // did player win?
-    // boolean playTurn = gameState.isActive();
-
-    // if (playTurn) {
-    //   position = gameState.playTurn();
-    //   // did pc win?
-    // } else {
-    //   String winner = "X"; 
-    // }
-     
-
-
-
-    map.put("position", String.valueOf(position));
-    map.put("winner", game.winner());
     map.put("isActive", game.isActive());
-
+    map.put("winner", game.winner());
+     
+  
     return map; 
   }
 

@@ -19,7 +19,15 @@ public class GameTests {
 		assertEquals(net.shawnklein.tic_tac_toe.Game.class, g.getClass());
 	}
 
+  @Test
+	void isActiveBlankBoard() {
+    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
+		Board board = new Board(a);
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
 
+		assertEquals("t", g.isActive());
+	}
 
   
 }
