@@ -10,6 +10,7 @@ public class Board {
   // int WINNINGINDICES[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
 
   public Board(String[] gameBoard) {
+    System.out.println("X".equals(gameBoard[0])  );
     board = gameBoard;
   }
 
@@ -21,7 +22,7 @@ public class Board {
     int count = 0;
 
     for (int i=0; i<9; i++) {
-        if (" " == board[i]) {
+        if (" ".equals(board[i])) {
           count++;
         }
     }
@@ -70,7 +71,7 @@ public class Board {
     //   }
     // }
 
-    return getWinner() != "n";
+    return !getWinner().equals("n");
   }
 
   // Takes in index and returns boolean based on if it's available
@@ -79,11 +80,11 @@ public class Board {
   }
 
   public boolean pcWins() {
-    return getWinner() == "O";
+    return getWinner().equals("O");
   }
 
   public boolean huWins() {
-    return getWinner() == "X";
+    return getWinner().equals("X");
   }
 
   public void assign(int i, String string) {
@@ -98,7 +99,7 @@ public class Board {
     LinkedList<Integer> indices = new LinkedList<Integer>();
     
     for (int i = 0; i < 9; i++) {
-        if (board[i] == " ") {
+        if (board[i].equals(" ")) {
             indices.add(i);  
         }
     }

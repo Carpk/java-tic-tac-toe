@@ -73,7 +73,14 @@ public class OpponentTests {
 		assertEquals(7, opp.play(b));
 	}
 
+	@Test
+	void minmaxPlay() {
+		Opponent opp = new Opponent();
+    String[] a = {"O", " ", " ", "X", "X", " ", " ", " ", " "};
+    Board b = new Board(a);
 
+		assertEquals(5, opp.play(b));
+	}
 
 	@Test
 	void boardValueTie() {

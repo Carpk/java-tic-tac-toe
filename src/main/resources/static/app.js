@@ -32,7 +32,7 @@ $(function() {
           } else {
             $("#" + data.position ).text( "O").css("color", "red");
             boardArray[data.position] = "O"; 
-            
+
             playerTurn = true;
           }
 
