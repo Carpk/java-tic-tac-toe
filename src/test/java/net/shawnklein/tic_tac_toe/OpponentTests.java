@@ -21,7 +21,7 @@ public class OpponentTests {
 	void playOneOpenSpotBoard() {
 		Opponent opp = new Opponent();
     String[] a = {"X", "O", " ", "X", "X", "O", "O", "X", "O"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(2, opp.play(b));
 	}
@@ -31,7 +31,7 @@ public class OpponentTests {
 	void minmaxTwoOpenEasyTwoSpotWin() {
 		Opponent opp = new Opponent();
     String[] a = {"X", "O", " ", "X", "O", "X", " ", "X", "O"};  // test isAnyMatch
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(6, opp.play(b));
 	}
@@ -40,7 +40,7 @@ public class OpponentTests {
 	void minmaxTwoOpenEasyFourSpotWin() {
 		Opponent opp = new Opponent();
     String[] a = {"O", " ", " ", "X", " ", "X", " ", "O", "O"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(4, opp.play(b));
 	}
@@ -50,7 +50,7 @@ public class OpponentTests {
 	void minmaxTopDefAssignment() {
 		Opponent opp = new Opponent();
     String[] a = {"X", "X", " ", "O", " ", "X", " ", "O", " "};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(2, opp.play(b));
 	}
@@ -59,7 +59,7 @@ public class OpponentTests {
 	void minmaxMidDefAssignment() {
 		Opponent opp = new Opponent();
     String[] a = {"O", " ", " ", " ", " ", "X", "X", " ", "O"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(4, opp.play(b));
 	}
@@ -68,7 +68,7 @@ public class OpponentTests {
 	void minmaxBotDefAssignment() {
 		Opponent opp = new Opponent();
     String[] a = {"O", " ", " ", " ", " ", "O", "X", " ", "X"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(7, opp.play(b));
 	}
@@ -77,7 +77,7 @@ public class OpponentTests {
 	void minmaxPlay() {
 		Opponent opp = new Opponent();
     String[] a = {"O", " ", " ", "X", "X", " ", " ", " ", " "};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(5, opp.play(b));
 	}
@@ -86,7 +86,7 @@ public class OpponentTests {
 	void boardValueTie() {
 		Opponent opp = new Opponent();
     String[] a = {"O", "O", "X", "X", "X", "O", "O", "O", "X"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(0, opp.boardValue(b));
 	}
@@ -95,7 +95,7 @@ public class OpponentTests {
 	void boardValueXWin() {
 		Opponent opp = new Opponent();
     String[] a = {"X", "O", "X", "X", "X", "O", "O", "O", "X"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(-128, opp.boardValue(b));
 	}
@@ -104,7 +104,7 @@ public class OpponentTests {
 	void boardValueOWin() {
 		Opponent opp = new Opponent();
     String[] a = {"O", "O", "X", "O", "X", "O", "O", "O", "X"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(128, opp.boardValue(b));
 	}
@@ -113,7 +113,7 @@ public class OpponentTests {
 	void minimaxBlank() {
 		Opponent opp = new Opponent();
     String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(0, opp.minimax(b, 0, true));
 	}
@@ -122,7 +122,7 @@ public class OpponentTests {
 	void minimaxPcWinnerBoard() {
 		Opponent opp = new Opponent();
     String[] a = {"O", "O", "O", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(128, opp.minimax(b, 0, true));
 	}
@@ -131,7 +131,7 @@ public class OpponentTests {
 	void minimaxHuWinnerBoard() {
 		Opponent opp = new Opponent();
     String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", "X"};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(-128, opp.minimax(b, 0, false));
 	}
@@ -140,7 +140,7 @@ public class OpponentTests {
 	void minimaxOneSpaceWin() {
 		Opponent opp = new Opponent();
     String[] a = {"O", "O", " ", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a);
+    Board b = new Board(a, "O", "X");
 
 		assertEquals(64, opp.minimax(b, 0, true));
 	}

@@ -12,7 +12,7 @@ public class GameTests {
   @Test
 	void classInstantiates() {
     String[] a = {" ", "X", "X", "X", "X", "X", "X", "X", "X"};
-		Board board = new Board(a);
+		Board board = new Board(a, "O", "X");
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -22,7 +22,7 @@ public class GameTests {
   @Test
 	void isActiveBlankBoard() {
     String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-		Board board = new Board(a);
+		Board board = new Board(a, "O", "X");
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 

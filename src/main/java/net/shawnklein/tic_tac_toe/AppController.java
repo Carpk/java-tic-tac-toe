@@ -26,7 +26,7 @@ public class AppController {
   public Map<String, String> playerTurn(@RequestParam String[] board) {
     Map<String, String> map = new HashMap<>();
     
-    Board gameBoard = new Board(board);
+    Board gameBoard = new Board(board, "O", "X");
     Opponent pc = new Opponent();
     Game game = new Game(gameBoard, pc);
     
