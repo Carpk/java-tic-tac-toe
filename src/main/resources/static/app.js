@@ -6,8 +6,6 @@ $(function() {
   boardArray = [ " ", " ", " ", " ", " ", " ", " ", " ", " "];
 
   $( ".box" ).on( "click", function() {
-
-
     if (playerTurn & boardArray[this.id] == " "){
       playerTurn = false;
       boardArray[this.id] = "X";
@@ -18,16 +16,21 @@ $(function() {
           console.log( data );
 
           // { winner: "O", position: "0", isActive: "f" }
-
           if (data.winner == 'X') {
+            $("#x-win").show();
+            $("#reset").show();
             console.log( "X is WINNER!");
 
           } else if (data.winner == 'O') {
+            $("#o-win").show();
+            $("#reset").show();
             $("#" + data.position ).text( "O").css("color", "red");          
             boardArray[data.position] = "O"; 
 
             console.log( "O is WINNER!");
           } else if(data.isActive == 'f') {
+            $("#tie-game").show();
+            $("#reset").show();
             console.log( "TIE GAME!");
           } else {
             $("#" + data.position ).text( "O").css("color", "red");
@@ -44,13 +47,6 @@ $(function() {
 
   } );
 
-  
-
-
-  // function displayPlayerTurn(id) {
-  //   var txt = $( this ).html();
-  //   $("#"+id ).text = txt;
-  // }
 
 
 

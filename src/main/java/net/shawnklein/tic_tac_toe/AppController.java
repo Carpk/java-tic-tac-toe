@@ -37,6 +37,7 @@ public class AppController {
     }
     
 
+    // need to update board with new position to verify win
     map.put("isActive", game.isActive());
     map.put("winner", game.winner());
      
