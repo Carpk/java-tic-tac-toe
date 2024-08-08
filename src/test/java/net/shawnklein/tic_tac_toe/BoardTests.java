@@ -338,7 +338,7 @@ public class BoardTests {
 		Board b = new Board(a, "O", "X");
 
 		assertFalse( b.huWins() );
-		b.assign(4, "X");
+		b.assignHu(4);
 		assertTrue( b.huWins() );
 	}
 
@@ -348,19 +348,52 @@ public class BoardTests {
 		Board b = new Board(a, "O", "X");
 
 		assertFalse( b.huWins() );
-		b.assign(0, "X");
+		b.assignHu(0);
 		assertTrue( b.huWins() );
 	}
 
 	@Test
-	void assignEndToken() {
+	void assignEndHuToken() {
     String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", " "};
 		Board b = new Board(a, "O", "X");
 
 		assertFalse( b.huWins() );
-		b.assign(8, "X");
+		b.assignHu(8);
 		assertTrue( b.huWins() );
 	}
+
+
+	@Test
+	void assignEndPcToken() {
+    String[] a = {"O", " ", " ", " ", "O", " ", " ", " ", " "};
+		Board b = new Board(a, "O", "X");
+
+		assertFalse( b.huWins() );
+		b.assignPc(8);
+		assertTrue( b.pcWins() );
+	}
+
+	@Test
+	void assignFrontPcToken() {
+    String[] a = {" ", "O", "O", " ", "O", " ", " ", " ", " "};
+		Board b = new Board(a, "O", "X");
+
+		assertFalse( b.huWins() );
+		b.assignPc(0);
+		assertTrue( b.pcWins() );
+	}
+
+	@Test
+	void assignMidPcToken() {
+    String[] a = {" ", "O", " ", " ", " ", " ", " ", "O", " "};
+		Board b = new Board(a, "O", "X");
+
+		assertFalse( b.huWins() );
+		b.assignPc(4);
+		assertTrue( b.pcWins() );
+	}
+
+
 
   @Test
 	void openIndicesAllOpen() {
@@ -368,8 +401,6 @@ public class BoardTests {
 		Board b = new Board(a, "O", "X");
 		List<Integer> c = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
 		List<Integer> d = b.openIndices();
-
-		System.out.println(d);
 
 		assertTrue( c.equals(d) );
 	}

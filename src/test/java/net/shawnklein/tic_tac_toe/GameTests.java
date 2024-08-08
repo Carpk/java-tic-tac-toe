@@ -31,3 +31,25 @@ public class GameTests {
 
   
 }
+
+
+
+// public String isActive() {
+// 	// need to check for winning positions
+// 	return board.isActive() ? "t" : "f";
+// }
+
+// // return winner of game
+// public String winner() {
+// 	return board.getWinner();
+// }
+
+
+// // returns computer choosen position
+// public int playTurn() {    
+// 	return pc.play(board);
+// }
+
+// public void updateTurn(int i) {
+// 	board.assignPc(i);
+// }

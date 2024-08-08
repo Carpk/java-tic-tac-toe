@@ -16,7 +16,7 @@ public class Opponent {
       if (board.isBlank(i)) {
         Board tempBoard = board.clone();
         // System.out.println("BLANK AT " + i);
-        tempBoard.assign(i, "O");
+        tempBoard.assignPc(i);
 
         int posValue = minimax(tempBoard, depth, false);
         // System.out.println("RETURNING VAL: " + posValue + " for pos: " + i);         // PRINT FOR DEBUG
@@ -52,7 +52,8 @@ public class Opponent {
     List<Integer> indices = board.openIndices();
     for (int i : indices) {
       Board tempBoard = board.clone();  
-      tempBoard.assign(i, pcTurn ? "O" : "X");
+      // tempBoard.assign(i, pcTurn ? "O" : "X");
+      if (pcTurn) {tempBoard.assignPc(i);} else {tempBoard.assignHu(i);}
       int tempVal = minimax(tempBoard, depth + 1, !pcTurn) / 2;
       // if (tempVal > -16 && tempVal < 16 && tempVal != 0) {
       // System.out.println(tempBoard.board + " val: " + tempVal + " at " + depth);

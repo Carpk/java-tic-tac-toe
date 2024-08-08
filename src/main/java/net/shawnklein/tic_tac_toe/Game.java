@@ -11,14 +11,10 @@ public class Game {
   }
 
 
-  // returns boolen if game is in playable state
+  // returns string if game is in playable state
   public String isActive() {
     // need to check for winning positions
-    if (board.isActive()) {
-      return "t";
-    }
-
-    return "f";
+    return board.isActive() ? "t" : "f";
   }
 
   // return winner of game
@@ -32,9 +28,9 @@ public class Game {
     return pc.play(board);
   }
 
-
-
-
+  public void updateTurn(int i) {
+    board.assignPc(i);
+  }
 
 
 

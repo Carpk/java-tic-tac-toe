@@ -51,7 +51,7 @@ public class Board {
   }
 
 
-
+  // Checks the winning combinations and returns any matching value thats not a blank space.
   public String getWinner() {
     int winningIndices[][] = {{0,1,2},{3,4,5},{6,7,8},
                               {0,3,6},{1,4,7},{2,5,8},
@@ -66,7 +66,7 @@ public class Board {
     return "n";
   }
 
-
+  // Returns boolean based on if there are any winners
   public Boolean isAnyMatch() {
     return !getWinner().equals("n");
   }
@@ -76,16 +76,29 @@ public class Board {
     return board[i].equals(" ");
   }
 
+  // Returns boolean based on if the computer won
   public boolean pcWins() {
     return getWinner().equals(pcToken);
   }
 
+  // Returns boolean based on if the player won
   public boolean huWins() {
     return getWinner().equals(huToken);
   }
 
-  public void assign(int i, String string) {
-    board[i] = string;
+  // assigns a 
+  // public void assign(int i, String string) {
+  //   board[i] = string;
+  // }
+
+  // assigns player token to board based on integer
+  public void assignHu(int i) {
+    board[i] = huToken;
+  }
+
+  // assigns computer token to board based on integer
+  public void assignPc(int i) {
+    board[i] = pcToken;
   }
 
   public void printSelf() {
