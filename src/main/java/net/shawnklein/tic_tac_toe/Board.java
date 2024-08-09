@@ -6,11 +6,12 @@ import java.util.List;
 
 
 public class Board {
+  static final int WINNING_INDICES[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
+
   String[] board;
   String huToken;
   String pcToken;
-
-  // int WINNINGINDICES[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
+  // String openToken;
 
   public Board(String[] gameBoard, String pc, String hu) {
     board = gameBoard;
@@ -26,7 +27,7 @@ public class Board {
     int count = 0;
 
     for (int i=0; i<board.length; i++) {
-        if (" ".equals(board[i])) {
+        if (isBlank(i)) {
           count++;
         }
     }
@@ -39,13 +40,11 @@ public class Board {
   }
 
 
-
   // returns boolean based on playable positions in board
   public boolean isFull() {
     for (String s : board) {
-      if (" ".equals(s)) { return false; }
+      if (!s.equals(pcToken) && !s.equals(huToken)) { return false; }
     }
-    // Arrays.asList(board).contains(" ");
 
     return true;
   }
@@ -53,12 +52,8 @@ public class Board {
 
   // Checks the winning combinations and returns any matching value thats not a blank space.
   public String getWinner() {
-    int winningIndices[][] = {{0,1,2},{3,4,5},{6,7,8},
-                              {0,3,6},{1,4,7},{2,5,8},
-                              {0,4,8},{2,4,6}};
-
-    for (int[] i : winningIndices) {      
-        if (!board[i[0]].equals(" ") && board[i[0]].equals(board[i[1]]) && board[i[0]].equals(board[i[2]])) {
+    for (int[] i : WINNING_INDICES) {      
+        if (!isBlank(i[0]) && board[i[0]].equals(board[i[1]]) && board[i[0]].equals(board[i[2]])) {
           return board[i[0]];
       }
     }
@@ -68,12 +63,12 @@ public class Board {
 
   // Returns boolean based on if there are any winners
   public Boolean isAnyMatch() {
-    return !getWinner().equals("n");
+    return getWinner().equals(pcToken) || getWinner().equals(huToken);
   }
 
   // Takes in index and returns boolean based on if it's available
   public boolean isBlank(int i) {
-    return board[i].equals(" ");
+    return !board[i].equals(pcToken) && !board[i].equals(huToken);
   }
 
   // Returns boolean based on if the computer won

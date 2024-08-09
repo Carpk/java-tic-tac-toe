@@ -16,7 +16,6 @@ $(function() {
           var data = JSON.parse(response);
           console.log( data );
 
-
           // { winner: "O", position: "0", isActive: "f" }
           if (data.winner == "X") {
             $("#x-win").show();
@@ -30,7 +29,7 @@ $(function() {
             boardArray[data.position] = "O"; 
 
             console.log( "O is WINNER!");
-          } else if(data.isActive == 'f') {
+          } else if( !data.isActive ) {
             $("#tie-game").show();
             $("#reset").show();
             console.log( "TIE GAME!");
@@ -40,7 +39,6 @@ $(function() {
 
             playerTurn = true;
           }
-
 
         });
     }

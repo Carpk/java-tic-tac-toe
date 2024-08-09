@@ -1,6 +1,7 @@
 package net.shawnklein.tic_tac_toe;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ public class GameTests {
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
-		assertEquals("t", g.isActive());
+		assertTrue(g.isActive());
 	}
 
 	@Test
@@ -36,7 +37,7 @@ public class GameTests {
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
-		assertEquals("f", g.isActive());
+		assertFalse( g.isActive());
 	}
 
 	@Test
@@ -46,7 +47,7 @@ public class GameTests {
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
-		assertEquals("f", g.isActive());
+		assertFalse(g.isActive());
 	}
   
 }

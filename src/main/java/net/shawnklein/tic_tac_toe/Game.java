@@ -14,7 +14,7 @@ public class Game {
   // returns string if game is in playable state
   public Boolean isActive() {
     // need to check for winning positions
-    return board.isActive(); //? "t" : "f";
+    return board.isActive();
   }
 
   // return winner of game
