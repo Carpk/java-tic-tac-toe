@@ -8,50 +8,48 @@ body {
   font-family: grobold;
 }
 
+h1 {
+  font-size: 5.5rem;
+  color: #6206bf;
+  /* text-shadow: 2px 2px #000; */
+}
+
+h2 {
+  font-size: 5rem;
+}
+
 .center-grid {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
-  width: 375px;
-  min-height: 350px;
+  margin-top: 125px;
+  width: 415px;
+  min-height: 400px;
 }
 
 .letter {
-  font-size: 5.5em;
-  padding-left: 21px;
-  /* left: 14px; */
-  /* position:relative; */
-  /* top: 12px; */
+  font-size: 6em;
+  padding-left: 26px;
 }
-
-
 
 
 .box {
-  /* border-left: solid;
-  border-top: solid; */
   float:left;
-  height: 114px;
-  width: 114px;
+  height: 130px;
+  width: 130px;
 }
-
-/* .boxcorner {
-  border-left: none;
-  border-top: none;
-} */
 
 .boxtop {
   border-top: solid;
-  /* border-top: none; */
-
 }
 
 .boxside {
   border-left: solid
-  /* border-left: none; */
 }
 
-/* .hidden {
-  display: none;
-} */
+.hidden {
+  display: none
+}
 
+.footer {
+  margin-top: 4em;
+}

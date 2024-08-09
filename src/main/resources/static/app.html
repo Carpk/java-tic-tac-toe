@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="header container">
-    <h1>Tic-Tac-Toe</h1>
+    <h1 class="text-center">Tic-Tac-Toe</h1>
   </div>
   
   <div class="container center-grid">
@@ -45,18 +45,15 @@
     </div>
   </div>
 
-  <div class="container">
-    <h2 id="x-win" style="display: none">X wins! </h2>
-    <h2 id="o-win" style="display: none">O wins!</h2>
-    <h2 id="tie-game" style="display: none">Tie Game!</h2>
-    <button id="reset" style="display: none" type="button" class="btn btn-secondary btn-lg">↺ Play again</button>
+  <div class="container footer">
+    <h2  class="x-win hidden text-center" >X wins! </h2>
+    <h2  class="o-win hidden text-center" >O wins!</h2>
+    <h2  class="tie-game hidden text-center" >Tie Game!</h2>
+  <div class="text-center">
+    <button id="reset"  type="button" class="btn btn-secondary btn-lg x-win o-win tie-game hidden">↺ Play again</button>
+  </div>
   </div>
 </div>
-
-
- 
-
-
 
 
 </body>
