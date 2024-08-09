@@ -86,11 +86,6 @@ public class Board {
     return getWinner().equals(huToken);
   }
 
-  // assigns a 
-  // public void assign(int i, String string) {
-  //   board[i] = string;
-  // }
-
   // assigns player token to board based on integer
   public void assignHu(int i) {
     board[i] = huToken;
@@ -101,10 +96,7 @@ public class Board {
     board[i] = pcToken;
   }
 
-  public void printSelf() {
-    System.out.println(Arrays.toString(board));
-  }
-
+  // returns a List of all the open positions on a board
   public List<Integer> openIndices() {
     LinkedList<Integer> indices = new LinkedList<Integer>();
     

@@ -12,9 +12,9 @@ public class Game {
 
 
   // returns string if game is in playable state
-  public String isActive() {
+  public Boolean isActive() {
     // need to check for winning positions
-    return board.isActive() ? "t" : "f";
+    return board.isActive(); //? "t" : "f";
   }
 
   // return winner of game

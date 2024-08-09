@@ -12,11 +12,13 @@ $(function() {
       $("#"+ this.id ).text( "X").css("color", "blue");
 
       $.post( "/", { 'board[]': boardArray })
-        .done(function( data ) {
+        .done(function( response ) {
+          var data = JSON.parse(response);
           console.log( data );
 
+
           // { winner: "O", position: "0", isActive: "f" }
-          if (data.winner == 'X') {
+          if (data.winner == "X") {
             $("#x-win").show();
             $("#reset").show();
             console.log( "X is WINNER!");

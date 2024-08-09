@@ -29,15 +29,29 @@ public class GameTests {
 		assertEquals("t", g.isActive());
 	}
 
+	@Test
+	void isActiveFullBoard() {
+		String[] a = {"X", "X", "O", "O", "O", "X", "X", "X", "O"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals("f", g.isActive());
+	}
+
+	@Test
+	void isActiveXWinsBoard() {
+		String[] a = {"X", " ", "O", "O", "X", " ", "O", " ", "X"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals("f", g.isActive());
+	}
   
 }
 
 
-
-// public String isActive() {
-// 	// need to check for winning positions
-// 	return board.isActive() ? "t" : "f";
-// }
 
 // // return winner of game
 // public String winner() {
