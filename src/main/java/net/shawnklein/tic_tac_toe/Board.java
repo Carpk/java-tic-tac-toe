@@ -1,6 +1,5 @@
 package net.shawnklein.tic_tac_toe;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,18 +10,20 @@ public class Board {
   String[] board;
   String huToken;
   String pcToken;
-  // String openToken;
 
+  // Board contructor takes array and the two game tokens
   public Board(String[] gameBoard, String pc, String hu) {
     board = gameBoard;
     huToken = hu;
     pcToken = pc;
   }
 
+  // returns cloned board for minimax algorithm
   public Board clone() {
     return new Board(board.clone(), pcToken, huToken);
   }
 
+  // returns the number of open spaces
   public int availableSpaces() {
     int count = 0;
 
@@ -38,7 +39,6 @@ public class Board {
   public boolean isActive() {
     return !isAnyMatch() && !isFull();
   }
-
 
   // returns boolean based on playable positions in board
   public boolean isFull() {

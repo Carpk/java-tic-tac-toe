@@ -27,6 +27,7 @@ public class AppController {
     Opponent pc = new Opponent();
     Game game = new Game(gameBoard, pc);
 
+    // check if player won game, pc turn if still active
     if (game.isActive()) {
       int position = game.playTurn();
       game.updateTurn(position);
@@ -34,6 +35,7 @@ public class AppController {
       jo.put("position", position);
     }
 
+    // check if pc or player won game and assign to JSON object
     jo.put("isActive", game.isActive());
     jo.put("winner", game.winner());
     

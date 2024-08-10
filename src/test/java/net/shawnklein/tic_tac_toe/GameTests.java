@@ -50,21 +50,97 @@ public class GameTests {
 		assertFalse(g.isActive());
 	}
   
+	@Test
+	void isActiveOWinsBoard() {
+		String[] a = {"X", " ", "O", "O", "X", "O", " ", " ", "O"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertFalse(g.isActive());
+	}
+
+	@Test
+	void getWinnerXWinsBoard() {
+		String[] a = {"X", " ", "O", "O", "X", " ", "O", " ", "X"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals("X", g.winner());
+	}
+  
+	@Test
+	void getWinnerOWinsBoard() {
+		String[] a = {"X", " ", "O", "O", "X", "O", " ", " ", "O"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals("O", g.winner());
+	}
+
+	@Test
+	void playTurnDefFrontBoard() {
+		String[] a = {" ", " ", " ", " ", "X", "O", " ", "X", " "};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals(1, g.playTurn());
+	}
+
+	@Test
+	void playTurnDefMidBoard() {
+		String[] a = {" ", " ", "X", " ", " ", " ", " ", " ", "X"};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals(5, g.playTurn());
+	}
+
+	@Test
+	void playTurnDefEndBoard() {
+		String[] a = {"X", " ", " ", " ", "X", "O", " ", " ", " "};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals(8, g.playTurn());
+	}
+
+	@Test
+	void playTurnWinFrontBoard() {
+		String[] a = {"X", " ", " ", " ", "O", "O", " ", "O", " "};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals(1, g.playTurn());
+	}
+
+	@Test
+	void playTurnWinMidBoard() {
+		String[] a = {"O", " ", " ", " ", "X", " ", "O", " ", " "};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertEquals(3, g.playTurn());
+	}
+
+	@Test
+	void updateTurnBoard() {
+		String[] a = {"O", " ", " ", " ", "X", " ", "O", " ", " "};
+		Board board = new Board(a, "O", "X");
+		Opponent pc = new Opponent();
+		Game g = new Game(board, pc);
+
+		assertTrue(g.isActive());
+		g.updateTurn(3);
+		assertFalse(g.isActive());
+	}
+
+
 }
-
-
-
-// // return winner of game
-// public String winner() {
-// 	return board.getWinner();
-// }
-
-
-// // returns computer choosen position
-// public int playTurn() {    
-// 	return pc.play(board);
-// }
-
-// public void updateTurn(int i) {
-// 	board.assignPc(i);
-// }

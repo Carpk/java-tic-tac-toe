@@ -5,11 +5,11 @@ public class Game {
   Board board;
   Opponent pc;
 
+  // Contructor takes Board and Opponent
   public Game(Board gameboard, Opponent opp) {
     board = gameboard;
     pc = opp;
   }
-
 
   // returns string if game is in playable state
   public Boolean isActive() {
@@ -22,17 +22,15 @@ public class Game {
     return board.getWinner();
   }
 
-
   // returns computer choosen position
   public int playTurn() {    
     return pc.play(board);
   }
 
+  // updates board with PC's chosen position
   public void updateTurn(int i) {
     board.assignPc(i);
   }
-
-
 
 
 }

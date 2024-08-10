@@ -39,19 +39,14 @@ $(function() {
 
             playerTurn = true;
           }
-
         });
     }
-
-
-
   } );
 
-
+  // Resets the board with a new game
   $( "#reset" ).on( "click", function() {
     window.location.reload();
   });
-
 
 });
 
