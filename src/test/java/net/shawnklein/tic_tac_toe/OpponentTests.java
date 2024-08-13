@@ -20,8 +20,8 @@ public class OpponentTests {
   @Test
 	void playOneOpenSpotBoard() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "O", " ", "X", "X", "O", "O", "X", "O"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'X', 'O', ' ', 'X', 'X', 'O', 'O', 'X', 'O'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(2, opp.play(b));
 	}
@@ -30,8 +30,8 @@ public class OpponentTests {
 	@Test
 	void minmaxTwoOpenEasyTwoSpotWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "O", " ", "X", "O", "X", " ", "X", "O"};  // test isAnyMatch
-    Board b = new Board(a, "O", "X");
+    char[] a = {'X', 'O', ' ', 'X', 'O', 'X', ' ', 'X', 'O'};  // test isAnyMatch
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(6, opp.play(b));
 	}
@@ -39,8 +39,8 @@ public class OpponentTests {
 	@Test
 	void minmaxTwoOpenEasyFourSpotWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", " ", "X", " ", "X", " ", "O", "O"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', ' ', ' ', 'X', ' ', 'X', ' ', 'O', 'O'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(4, opp.play(b));
 	}
@@ -49,8 +49,8 @@ public class OpponentTests {
 	@Test
 	void minmaxTopDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "X", " ", "O", " ", "X", " ", "O", " "};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'X', 'X', ' ', 'O', ' ', 'X', ' ', 'O', ' '};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(2, opp.play(b));
 	}
@@ -58,8 +58,8 @@ public class OpponentTests {
 	@Test
 	void minmaxMidDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", " ", " ", " ", "X", "X", " ", "O"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', ' ', ' ', ' ', ' ', 'X', 'X', ' ', 'O'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(4, opp.play(b));
 	}
@@ -67,8 +67,8 @@ public class OpponentTests {
 	@Test
 	void minmaxBotDefAssignment() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", " ", " ", " ", "O", "X", " ", "X"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', ' ', ' ', ' ', ' ', 'O', 'X', ' ', 'X'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(7, opp.play(b));
 	}
@@ -76,8 +76,8 @@ public class OpponentTests {
 	@Test
 	void minmaxPlay() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", " ", " ", "X", "X", " ", " ", " ", " "};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', ' ', ' ', 'X', 'X', ' ', ' ', ' ', ' '};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(5, opp.play(b));
 	}
@@ -85,8 +85,8 @@ public class OpponentTests {
 	@Test
 	void boardValueTie() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", "O", "X", "X", "X", "O", "O", "O", "X"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', 'O', 'X', 'X', 'X', 'O', 'O', 'O', 'X'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(0, opp.boardValue(b));
 	}
@@ -94,8 +94,8 @@ public class OpponentTests {
 	@Test
 	void boardValueXWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", "O", "X", "X", "X", "O", "O", "O", "X"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'X', 'O', 'X', 'X', 'X', 'O', 'O', 'O', 'X'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(-128, opp.boardValue(b));
 	}
@@ -103,8 +103,8 @@ public class OpponentTests {
 	@Test
 	void boardValueOWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", "O", "X", "O", "X", "O", "O", "O", "X"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', 'O', 'X', 'O', 'X', 'O', 'O', 'O', 'X'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(128, opp.boardValue(b));
 	}
@@ -112,8 +112,8 @@ public class OpponentTests {
 	@Test
 	void minimaxBlank() {
 		Opponent opp = new Opponent();
-    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a, "O", "X");
+    char[] a = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(0, opp.minimax(b, 0, true));
 	}
@@ -121,8 +121,8 @@ public class OpponentTests {
 	@Test
 	void minimaxPcWinnerBoard() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", "O", "O", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', 'O', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(128, opp.minimax(b, 0, true));
 	}
@@ -130,8 +130,8 @@ public class OpponentTests {
 	@Test
 	void minimaxHuWinnerBoard() {
 		Opponent opp = new Opponent();
-    String[] a = {"X", " ", " ", " ", "X", " ", " ", " ", "X"};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'X', ' ', ' ', ' ', 'X', ' ', ' ', ' ', 'X'};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(-128, opp.minimax(b, 0, false));
 	}
@@ -139,8 +139,8 @@ public class OpponentTests {
 	@Test
 	void minimaxOneSpaceWin() {
 		Opponent opp = new Opponent();
-    String[] a = {"O", "O", " ", " ", " ", " ", " ", " ", " "};
-    Board b = new Board(a, "O", "X");
+    char[] a = {'O', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+    Board b = new Board(a, 'O', 'X');
 
 		assertEquals(64, opp.minimax(b, 0, true));
 	}

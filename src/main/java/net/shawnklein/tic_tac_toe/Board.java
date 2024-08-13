@@ -7,12 +7,12 @@ import java.util.List;
 public class Board {
   static final int WINNING_INDICES[][] = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
 
-  String[] board;
-  String huToken;
-  String pcToken;
+  char[] board;
+  char huToken;
+  char pcToken;
 
   // Board contructor takes array and the two game tokens
-  public Board(String[] gameBoard, String pc, String hu) {
+  public Board(char[] gameBoard, char pc, char hu) {
     board = gameBoard;
     huToken = hu;
     pcToken = pc;
@@ -42,8 +42,8 @@ public class Board {
 
   // returns boolean based on playable positions in board
   public boolean isFull() {
-    for (String s : board) {
-      if (!s.equals(pcToken) && !s.equals(huToken)) { return false; }
+    for (char s : board) {
+      if (s != pcToken && s != huToken) { return false; }
     }
 
     return true;
@@ -51,34 +51,34 @@ public class Board {
 
 
   // Checks the winning combinations and returns any matching value thats not a blank space.
-  public String getWinner() {
+  public char getWinner() {
     for (int[] i : WINNING_INDICES) {      
-        if (!isBlank(i[0]) && board[i[0]].equals(board[i[1]]) && board[i[0]].equals(board[i[2]])) {
+        if (!isBlank(i[0]) && board[i[0]] == board[i[1]] && board[i[0]] == board[i[2]]) {
           return board[i[0]];
       }
     }
 
-    return "n";
+    return 'n';
   }
 
   // Returns boolean based on if there are any winners
   public Boolean isAnyMatch() {
-    return getWinner().equals(pcToken) || getWinner().equals(huToken);
+    return getWinner() == pcToken || getWinner() == huToken;
   }
 
   // Takes in index and returns boolean based on if it's available
   public boolean isBlank(int i) {
-    return !board[i].equals(pcToken) && !board[i].equals(huToken);
+    return board[i] != pcToken && board[i] != huToken;
   }
 
   // Returns boolean based on if the computer won
   public boolean pcWins() {
-    return getWinner().equals(pcToken);
+    return getWinner() == pcToken;
   }
 
   // Returns boolean based on if the player won
   public boolean huWins() {
-    return getWinner().equals(huToken);
+    return getWinner() == huToken;
   }
 
   // assigns player token to board based on integer
@@ -96,7 +96,7 @@ public class Board {
     LinkedList<Integer> indices = new LinkedList<Integer>();
     
     for (int i = 0; i < 9; i++) {
-        if (board[i].equals(" ")) {
+        if (board[i] == ' ') {
             indices.add(i);  
         }
     }

@@ -20,10 +20,10 @@ public class AppController {
 
   @PostMapping("/")
   @ResponseBody
-  public String playerTurn(@RequestParam String[] board) {
+  public String playerTurn(@RequestParam char[] board) {
     JSONObject jo = new JSONObject();
 
-    Board gameBoard = new Board(board, "O", "X");
+    Board gameBoard = new Board(board, 'O', 'X');
     Opponent pc = new Opponent();
     Game game = new Game(gameBoard, pc);
 

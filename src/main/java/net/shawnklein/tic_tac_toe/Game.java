@@ -18,7 +18,7 @@ public class Game {
   }
 
   // return winner of game
-  public String winner() {
+  public char winner() {
     return board.getWinner();
   }
 

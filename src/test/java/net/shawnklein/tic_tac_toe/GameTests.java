@@ -12,8 +12,8 @@ public class GameTests {
 
   @Test
 	void classInstantiates() {
-    String[] a = {" ", "X", "X", "X", "X", "X", "X", "X", "X"};
-		Board board = new Board(a, "O", "X");
+    char[] a = {' ', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -22,8 +22,8 @@ public class GameTests {
 
   @Test
 	void isActiveBlankBoard() {
-    String[] a = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-		Board board = new Board(a, "O", "X");
+    char[] a = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -32,8 +32,8 @@ public class GameTests {
 
 	@Test
 	void isActiveFullBoard() {
-		String[] a = {"X", "X", "O", "O", "O", "X", "X", "X", "O"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'O'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -42,8 +42,8 @@ public class GameTests {
 
 	@Test
 	void isActiveXWinsBoard() {
-		String[] a = {"X", " ", "O", "O", "X", " ", "O", " ", "X"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', 'O', 'O', 'X', ' ', 'O', ' ', 'X'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -52,8 +52,8 @@ public class GameTests {
   
 	@Test
 	void isActiveOWinsBoard() {
-		String[] a = {"X", " ", "O", "O", "X", "O", " ", " ", "O"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', 'O', 'O', 'X', 'O', ' ', ' ', 'O'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -62,28 +62,28 @@ public class GameTests {
 
 	@Test
 	void getWinnerXWinsBoard() {
-		String[] a = {"X", " ", "O", "O", "X", " ", "O", " ", "X"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', 'O', 'O', 'X', ' ', 'O', ' ', 'X'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
-		assertEquals("X", g.winner());
+		assertEquals('X', g.winner());
 	}
   
 	@Test
 	void getWinnerOWinsBoard() {
-		String[] a = {"X", " ", "O", "O", "X", "O", " ", " ", "O"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', 'O', 'O', 'X', 'O', ' ', ' ', 'O'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
-		assertEquals("O", g.winner());
+		assertEquals('O', g.winner());
 	}
 
 	@Test
 	void playTurnDefFrontBoard() {
-		String[] a = {" ", " ", " ", " ", "X", "O", " ", "X", " "};
-		Board board = new Board(a, "O", "X");
+		char[] a = {' ', ' ', ' ', ' ', 'X', 'O', ' ', 'X', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -92,8 +92,8 @@ public class GameTests {
 
 	@Test
 	void playTurnDefMidBoard() {
-		String[] a = {" ", " ", "X", " ", " ", " ", " ", " ", "X"};
-		Board board = new Board(a, "O", "X");
+		char[] a = {' ', ' ', 'X', ' ', ' ', ' ', ' ', ' ', 'X'};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -102,8 +102,8 @@ public class GameTests {
 
 	@Test
 	void playTurnDefEndBoard() {
-		String[] a = {"X", " ", " ", " ", "X", "O", " ", " ", " "};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', ' ', ' ', 'X', 'O', ' ', ' ', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -112,8 +112,8 @@ public class GameTests {
 
 	@Test
 	void playTurnWinFrontBoard() {
-		String[] a = {"X", " ", " ", " ", "O", "O", " ", "O", " "};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'X', ' ', ' ', ' ', 'O', 'O', ' ', 'O', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -122,8 +122,8 @@ public class GameTests {
 
 	@Test
 	void playTurnWinMidBoard() {
-		String[] a = {"O", " ", " ", " ", "X", " ", "O", " ", " "};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'O', ' ', ' ', ' ', 'X', ' ', 'O', ' ', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 
@@ -132,8 +132,8 @@ public class GameTests {
 
 	@Test
 	void updateTurnBoard() {
-		String[] a = {"O", " ", " ", " ", "X", " ", "O", " ", " "};
-		Board board = new Board(a, "O", "X");
+		char[] a = {'O', ' ', ' ', ' ', 'X', ' ', 'O', ' ', ' '};
+		Board board = new Board(a, 'O', 'X');
 		Opponent pc = new Opponent();
 		Game g = new Game(board, pc);
 

@@ -3,7 +3,7 @@
 // Shorthand for $( document ).ready()
 $(function() {
   playerTurn = true;
-  boardArray = [ " ", " ", " ", " ", " ", " ", " ", " ", " "];
+  boardArray = [ ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 
   $( ".box" ).on( "click", function() {
     if (playerTurn & boardArray[this.id] == " "){
