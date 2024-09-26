@@ -115,7 +115,7 @@ public class OpponentTests {
     char[] a = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     Board b = new Board(a, 'O', 'X');
 
-		assertEquals(0, opp.minimax(b, 0, true));
+		assertEquals(0, opp.minimax(b, true));
 	}
 
 	@Test
@@ -124,7 +124,7 @@ public class OpponentTests {
     char[] a = {'O', 'O', 'O', ' ', ' ', ' ', ' ', ' ', ' '};
     Board b = new Board(a, 'O', 'X');
 
-		assertEquals(128, opp.minimax(b, 0, true));
+		assertEquals(128, opp.minimax(b, true));
 	}
 
 	@Test
@@ -133,7 +133,7 @@ public class OpponentTests {
     char[] a = {'X', ' ', ' ', ' ', 'X', ' ', ' ', ' ', 'X'};
     Board b = new Board(a, 'O', 'X');
 
-		assertEquals(-128, opp.minimax(b, 0, false));
+		assertEquals(-128, opp.minimax(b, false));
 	}
 
 	@Test
@@ -142,7 +142,7 @@ public class OpponentTests {
     char[] a = {'O', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
     Board b = new Board(a, 'O', 'X');
 
-		assertEquals(64, opp.minimax(b, 0, true));
+		assertEquals(64, opp.minimax(b, true));
 	}
 
 	// @Test

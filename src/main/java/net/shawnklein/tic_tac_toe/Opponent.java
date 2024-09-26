@@ -10,7 +10,7 @@ public class Opponent {
   public int play(Board board) {
     int pos = 0;
     int maxVal = -128;
-    int depth = board.availableSpaces(); // - 1;
+    // int depth = board.availableSpaces(); // - 1;
 
     for (int i = 0; i < 9; i++) {
       if (board.isBlank(i)) {
@@ -18,7 +18,7 @@ public class Opponent {
         // System.out.println("BLANK AT " + i);
         tempBoard.assignPc(i);
 
-        int posValue = minimax(tempBoard, depth, false);
+        int posValue = minimax(tempBoard, false);
         // System.out.println("RETURNING VAL: " + posValue + " for pos: " + i);         // PRINT FOR DEBUG
 
         if (posValue > maxVal) {
@@ -43,7 +43,7 @@ public class Opponent {
   }
 
   
-  public Integer minimax(Board board, int depth, Boolean pcTurn) { 
+  public Integer minimax(Board board, Boolean pcTurn) { 
     if (board.isFull() || board.isAnyMatch()) {
       return boardValue(board);
     }
@@ -54,7 +54,7 @@ public class Opponent {
       Board tempBoard = board.clone();  
       // tempBoard.assign(i, pcTurn ? "O" : "X");
       if (pcTurn) {tempBoard.assignPc(i);} else {tempBoard.assignHu(i);}
-      int tempVal = minimax(tempBoard, depth + 1, !pcTurn) / 2;
+      int tempVal = minimax(tempBoard, !pcTurn) / 2;
       // if (tempVal > -16 && tempVal < 16 && tempVal != 0) {
       // System.out.println(tempBoard.board + " val: " + tempVal + " at " + depth);
       // }
