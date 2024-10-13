@@ -31,6 +31,4 @@ public class Game {
   public void updateTurn(int i) {
     board.assignPc(i);
   }
-
-
 }

@@ -10,16 +10,13 @@ public class Opponent {
   public int play(Board board) {
     int pos = 0;
     int maxVal = -128;
-    // int depth = board.availableSpaces(); // - 1;
 
     for (int i = 0; i < 9; i++) {
       if (board.isBlank(i)) {
         Board tempBoard = board.clone();
-        // System.out.println("BLANK AT " + i);
         tempBoard.assignPc(i);
 
         int posValue = minimax(tempBoard, false);
-        // System.out.println("RETURNING VAL: " + posValue + " for pos: " + i);         // PRINT FOR DEBUG
 
         if (posValue > maxVal) {
           System.out.println("ASSINGING " + i + " for value: " + posValue);
@@ -28,7 +25,7 @@ public class Opponent {
         }
       }
     }
-    // System.out.println("PLAY RETURNING: " + pos);
+
     return pos;
   }
   
